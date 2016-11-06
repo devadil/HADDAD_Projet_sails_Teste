@@ -7,7 +7,27 @@
 
 module.exports = {
 
+  meta: {
+    schemaName: 'Sails'
+  },
+
   attributes: {
+
+    name : {
+      type : 'string' ,
+      required : true
+
+    } ,
+
+    email : {
+      type : 'string',
+      email: true
+    } ,
+
+    state :{
+      type : 'string'
+    }
+
 
   }
 };
