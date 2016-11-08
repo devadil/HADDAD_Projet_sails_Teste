@@ -30,17 +30,14 @@ module.exports = {
 
   'show': function (req, res, next) {
 
-    Custumer.findOne(req.param('id'), function (err, custumer) {
 
+    Custumer.findOne(req.param('id')).populateAll().exec(function (err, custumer) {
       if (err) return next();
       if (!custumer) return next();
 
       res.view({
-
         custumer: custumer
-
       });
-
     });
   },
 
