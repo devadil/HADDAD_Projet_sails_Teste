@@ -13,19 +13,24 @@ module.exports = {
 
   attributes: {
 
-    name : {
-      type : 'string' ,
-      required : true
+    name: {
+      type: 'string',
+      required: true
 
-    } ,
+    },
 
-    email : {
-      type : 'string',
+    email: {
+      type: 'string',
       email: true
-    } ,
+    },
 
-    state :{
-      type : 'string'
+    state: {
+      type: 'string'
+    },
+
+    stocks: {
+      collection: 'stock',
+      via: 'entity'
     }
 
 

@@ -1,4 +1,35 @@
-<h2><%= custumer.name %></h2>
-<br>
-<h2><%= custumer.email %></h2>
-<h2><%= custumer.state %></h2>
+<div class="container">
+  <div class="row col-sm-4 col-lg-offset-4">
+
+    <h2><%= custumer.name %></h2>
+    <br>
+    <h1><%= custumer.email %></h1>
+    <h1><%= custumer.state %></h1>
+
+    <table class="table table-striped table-hover" style="table-layout:fixed;">
+      <th>Name</th>
+      <th>Prix</th>
+      <th> Actions</th>
+
+      <% _.each(custumer.stocks , function (stock){ %>
+
+      <tr data-id="<% stock.id %>" data-model="stock">
+
+        <td><%= stock.name %></td>
+        <td><%= stock.prix %></td>
+        <td><a href="stock/show/<%= stock.id %>">Show</a>
+          <a href="stock/edite/<%= stock.name %>" style="color: green;">Edite</a>
+          <a href="stock/destroy/<%= stock.prix %>" style="color: red">Delete</a>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+
+    <form action="/stock/new" method="post">
+      <input type="hidden" name="id" value="<%= custumer.id %>">
+      <input type="submit" value="Ajouter du stock">
+    </form>
+
+  </div>
+</div>
+

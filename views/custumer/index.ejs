@@ -1,0 +1,34 @@
+<div class="container center-block">
+  <h2>Custumer list</h2>
+  <br>
+  <table class="table table-striped table-hover" style="table-layout:fixed;">
+
+    <th>ID</th>
+    <th>Name</th>
+    <th>E-mail</th>
+    <th>State</th>
+    <th> Actions</th>
+
+    <% _.each(custumers , function (custumer){ %>
+
+    <tr data-id="<% custumer.id %>" data-model="custumer">
+
+      <td><%= custumer.id %></td>
+      <td><%= custumer.name %></td>
+      <td><%= custumer.email %></td>
+      <td><%= custumer.state ==  null ? "NAN" : custumer.state %></td>
+      <td><a href="custumer/show/<%= custumer.id %>">Show</a>
+        <a href="custumer/edite/<%= custumer.id %>" style="color: green;">Edite</a>
+        <a href="custumer/destroy/<%= custumer.id %>" style="color: red">Delete</a>
+      </td>
+    </tr>
+    <% }) %>
+    <tr>
+
+
+    </tr>
+
+
+  </table>
+</div>
+
